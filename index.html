@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#212428">
+  <meta name="description" content="Informatics graduate from the University of Jember with a strong foundation in web development, software engineering, and information technology.">
+  <meta name="author" content="Moch Arisandi Jayanto">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Moch Arisandi Jayanto — Portfolio">
+  <meta property="og:description" content="Informatics graduate from the University of Jember with a strong foundation in web development, software engineering, and information technology.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Moch Arisandi Jayanto — Portfolio">
+  <meta name="twitter:description" content="Informatics graduate from the University of Jember with a strong foundation in web development, software engineering, and information technology.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Moch Arisandi Jayanto — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="resume.css">
+  <link rel="stylesheet" href="contact.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Moch Arisandi Jayanto",
+      "description": "Informatics graduate from the University of Jember with a strong foundation in web development, software engineering, and information technology.",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universitas Jember"
+      },
+      "knowsAbout": ["Web development", "Frontend development", "UI design"]
+    }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-container">
+      <div class="logo-wrapper">
+        <span class="logo-badge" data-target="home">MAJ</span>
+        <div class="logo-text">
+          <a class="logo" data-target="home">Moch Arisandi Jayanto</a>
+          <div class="logo-subtext">
+            <span class="logo-role-stack">
+              <span class="logo-role is-active">Frontend Developer</span>
+              <span class="logo-role">Android Developer</span>
+            </span>
+            <span class="cursor-pulse" aria-hidden="true">|</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a class="nav-link active" data-target="home" aria-current="location">Home</a>
+      <a class="nav-link" data-target="about">About</a>
+      <a class="nav-link" data-target="projects">Projects</a>
+      <a class="nav-link" data-target="resume">Resume</a>
+      <a class="nav-link" data-target="contact">Contact</a>
+    </nav>
+    <a class="header-cta" data-target="contact">Hire Me <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="horizontal-track" id="horizontalTrack" aria-label="Portfolio content, scroll sideways" tabindex="0">
+    <section class="hero section horizontal-panel" id="home" aria-labelledby="home-title">
+      <span class="home-shine" aria-hidden="true"></span>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> PORTFOLIO / 2026</div>
+        <h1 id="home-title">Hi, I'm<br><span class="logo-name-shine">Moch Arisandi Jayanto</span></h1>
+        <p class="hero-description">Informatics graduate from the University of Jember with a strong foundation in web development, software engineering, and information technology. Passionate about building responsive, user-friendly web applications and developing innovative digital solutions that deliver practical value and enhance user experiences.</p>
+        <button class="load-more-btn" id="loadMoreBtn" aria-expanded="false">
+          <span>Read more</span>
+          <span aria-hidden="true">→</span>
+        </button>
+        <div class="hero-actions">
+          <a class="button button-primary" data-target="projects"><span class="button-icon">▱</span> View Projects <span aria-hidden="true">→</span></a>
+          <a class="button button-outline" data-target="contact"><span class="button-icon">✉</span> Contact Me</a>
+        </div>
+        <div class="social-links" aria-label="Social media links">
+          <a class="social-link" href="https://www.instagram.com/jaya_mrj/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="social-icon-fill" cx="18" cy="6" r="1"></circle></svg>
+          </a>
+          <a class="social-link" href="https://www.tiktok.com/@jaya_mrj" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.2a4.2 4.2 0 1 1-3.6-4.15v3.2a1.2 1.2 0 1 0 .6 1.04V3h3c.25 2.2 1.55 3.75 4 4.2v3.1A8 8 0 0 1 14 8.7"></path></svg>
+          </a>
+          <a class="social-link" href="https://github.com/vanargand29" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.3-4.3-2.2-6-2.7M15 21v-3.3a2.9 2.9 0 0 0-.8-2.2c2.7-.3 5.5-1.3 5.5-6A4.7 4.7 0 0 0 18.5 6a4.4 4.4 0 0 0-.1-3.2S17.4 2.5 15 4a12 12 0 0 0-6 0C6.6 2.5 5.6 2.8 5.6 2.8A4.4 4.4 0 0 0 5.5 6a4.7 4.7 0 0 0-1.2 3.5c0 4.7 2.8 5.7 5.5 6A2.9 2.9 0 0 0 9 17.7V21"></path></svg>
+          </a>
+          <a class="social-link" href="mailto:mocharisandijayanto@gmail.com" aria-label="Send email" title="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/moch-arisandi-jayanto-70a563179" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9v10M5 5v.01M10 19v-6a4 4 0 0 1 8 0v6M10 9v10"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Profile photo area">
+        <div class="art-glow"></div>
+        <div class="art-slash"></div>
+        <div class="art-ring"></div>
+        <span class="float-square square-one"></span>
+        <span class="float-square square-two"></span>
+        <span class="float-square square-three"></span>
+        <img class="profile-photo" src="img/mocharisandij.png" alt="Moch Arisandi Jayanto, Informatics graduate and aspiring web developer" fetchpriority="high" decoding="async">
+      </div>
+
+      <div class="role-marquee" aria-label="Frontend Developer and Android Developer">
+        <div class="role-marquee-track">
+          <div class="role-marquee-group">
+            <span>Frontend Developer</span><i aria-hidden="true">✦</i>
+            <span>Android Developer</span><i aria-hidden="true">✦</i>
+            <span>Frontend Developer</span><i aria-hidden="true">✦</i>
+            <span>Android Developer</span><i aria-hidden="true">✦</i>
+          </div>
+          <div class="role-marquee-group" aria-hidden="true">
+            <span>Frontend Developer</span><i>✦</i>
+            <span>Android Developer</span><i>✦</i>
+            <span>Frontend Developer</span><i>✦</i>
+            <span>Android Developer</span><i>✦</i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section section horizontal-panel" id="about" aria-labelledby="about-title">
+      <span class="about-shine" aria-hidden="true"></span>
+      <p class="section-kicker">GET TO KNOW ME</p>
+      <h2 id="about-title">About <span>me</span></h2>
+      <p class="section-intro">I'm Moch Arisandi Jayanto, an Informatics graduate from Universitas Jember with a strong foundation in web development, software engineering, and information technology. I'm passionate about building responsive, user-friendly web applications and developing innovative digital solutions that deliver practical value and enhance user experiences.</p>
+      <div class="info-grid">
+        <article class="info-card"><div class="card-symbol">⌘</div><h3>Web Development</h3><p>Building websites that are clean, responsive, and easy to use with modern technologies.</p></article>
+        <article class="info-card"><div class="card-symbol">✦</div><h3>UI &amp; Design</h3><p>Paying attention to consistent color, typography, spacing, and user experience.</p></article>
+        <article class="info-card"><div class="card-symbol">⚙</div><h3>Problem Solving</h3><p>Understanding needs and shaping solutions through technology.</p></article>
+        <article class="info-card"><div class="card-symbol">📱</div><h3>Mobile Development</h3><p>Creating cross-platform applications using Flutter and Android native development.</p></article>
+        <article class="info-card"><div class="card-symbol">🎓</div><h3>Continuous Learning</h3><p>Always eager to learn new technologies and improve my skills through certifications.</p></article>
+        <article class="info-card"><div class="card-symbol">💡</div><h3>Innovation</h3><p>Developing creative solutions that address real-world challenges.</p></article>
+      </div>
+    </section>
+
+    <section class="content-section section horizontal-panel" id="projects" aria-labelledby="projects-title">
+      <p class="section-kicker">MY WORK</p>
+      <h2 id="projects-title">Selected <span>projects</span></h2>
+      <p class="section-intro">This section can be filled with projects you have actually worked on.</p>
+      <div class="project-grid">
+        <article class="project-card"><div class="project-preview preview-blue"><span>01</span><div class="preview-window"><i></i><i></i><i></i><b>WEB APP</b></div></div><div class="project-meta"><div><h3>Tuberculosis Expert System</h3><p>A web app to help screen patients based on their symptoms.</p></div><span class="project-arrow">↗</span></div><div class="tags"><span>Laravel</span><span>MySQL</span><span>Dempster-Shafer</span></div></article>
+        <article class="project-card"><div class="project-preview preview-purple"><span>02</span><div class="preview-window"><i></i><i></i><i></i><b>DASHBOARD</b></div></div><div class="project-meta"><div><h3>Data Dashboard</h3><p>A placeholder for showcasing data analysis or visualization projects.</p></div><span class="project-arrow">↗</span></div><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></article>
+        <article class="project-card"><div class="project-preview preview-green"><span>03</span><div class="preview-window"><i></i><i></i><i></i><b>PERSONAL</b></div></div><div class="project-meta"><div><h3>Personal Portfolio</h3><p>A website to introduce your profile, skills, and work.</p></div><span class="project-arrow">↗</span></div><div class="tags"><span>Responsive</span><span>UI Design</span></div></article>
+      </div>
+    </section>
+
+    <section class="content-section section resume-section horizontal-panel" id="resume" aria-labelledby="resume-title">
+      <span class="resume-shine" aria-hidden="true"></span>
+      <div class="section-kicker"><span class="section-kicker-dot"></span> MY JOURNEY</div>
+      <h2 id="resume-title">Resume <span>&amp; education</span></h2>
+
+      <div class="resume-grid">
+        <div class="resume-grid-column">
+          <h3 class="resume-section-title"><span>Experience</span></h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <p class="timeline-date">Feb 2022 - Jul 2022</p>
+              <h3>Front-End Engineering Bootcamp</h3>
+              <h4>Ruangguru</h4>
+              <p class="timeline-location">Sumbersari, Jember, East Java</p>
+              <p>MAGANG & STUDI INDEPENDEN BERSERTIFIKAT Front End Engineering Bootcamp di PT Ruang Raya Indonesia</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <p class="timeline-date">Agu 2021 - Jan 2022</p>
+              <h3>Pengembang Aplikasi Android dan Multi-Platform</h3>
+              <h4>Dicoding</h4>
+              <p class="timeline-location">Sumbersari, Jember, East Java</p>
+              <p>MAGANG & STUDI INDEPENDEN BERSERTIFIKAT PENGEMBANG APLIKASI ANDROID DAN MULTI-PLATFORM di PT Presentologics</p>
+            </div>
+          </div>
+        </div>
+        <div class="resume-grid-column">
+          <h3 class="resume-section-title"><span>Education</span></h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <p class="timeline-date">2019 - 2026</p>
+              <h3>Universitas Jember</h3>
+              <h4>S1 - Informatika</h4>
+              <p>Informatics · Faculty of Computer Science</p>
+              <span class="gpa">IPK: 3.66</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="resume-section-title" style="text-align: center;"><span>Certifications</span></h3>
+      <div class="certifications-grid">
+        <div class="cert-item">
+          <h3>CERTIFICATE OF COMPLETION FRONT-END ENGINEERING BOOTCAMP (Basic Level)</h3>
+          <p>Ruangguru · Jul 2022</p>
+          <span class="category-tag">Frontend</span>
+        </div>
+        <div class="cert-item">
+          <h3>Belajar Fundamental Aplikasi Flutter</h3>
+          <p>Dicoding · Jan 2022 - Jan 2025</p>
+          <span class="category-tag">Flutter</span>
+        </div>
+        <div class="cert-item">
+          <h3>Sertif Kelulusan Pelatihan Aplikasi Android Dan Multi-Platform</h3>
+          <p>Dicoding · Jan 2022</p>
+          <span class="category-tag">Android</span>
+        </div>
+        <div class="cert-item">
+          <h3>Belajar Membuat Aplikasi Flutter untuk Pemula</h3>
+          <p>Dicoding · Des 2021 - Des 2024</p>
+          <span class="category-tag">Flutter</span>
+        </div>
+        <div class="cert-item">
+          <h3>Meniti Karier sebagai Software Developer</h3>
+          <p>Dicoding · Nov 2021 - Nov 2024</p>
+          <span class="category-tag">Career</span>
+        </div>
+        <div class="cert-item">
+          <h3>Belajar Fundamental Aplikasi Android</h3>
+          <p>Dicoding · Nov 2021 - Nov 2024</p>
+          <span class="category-tag">Android</span>
+        </div>
+        <div class="cert-item">
+          <h3>Memulai Pemrograman Dengan C</h3>
+          <p>Dicoding · Nov 2021 - Nov 2024</p>
+          <span class="category-tag">C Programming</span>
+        </div>
+        <div class="cert-item">
+          <h3>Belajar Membuat Aplikasi Android untuk Pemula</h3>
+          <p>Dicoding · Okt 2021 - Okt 2024</p>
+          <span class="category-tag">Android</span>
+        </div>
+        <div class="cert-item">
+          <h3>Memulai Pemrograman Dengan Dart</h3>
+          <p>Dicoding · Okt 2021 - Okt 2024</p>
+          <span class="category-tag">Dart</span>
+        </div>
+        <div class="cert-item">
+          <h3>Memulai Pemrograman Dengan Java</h3>
+          <p>Dicoding · Sep 2021 - Sep 2024</p>
+          <span class="category-tag">Java</span>
+        </div>
+        <div class="cert-item">
+          <h3>Belajar Prinsip Pemrograman SOLID</h3>
+          <p>Dicoding · Sep 2021 - Sep 2024</p>
+          <span class="category-tag">Software Design</span>
+        </div>
+        <div class="cert-item">
+          <h3>Memulai Pemrograman Dengan Kotlin</h3>
+          <p>Dicoding · Sep 2021 - Sep 2024</p>
+          <span class="category-tag">Kotlin</span>
+        </div>
+        <div class="cert-item">
+          <h3>Belajar Dasar Git dengan GitHub</h3>
+          <p>Dicoding · Agu 2021 - Agu 2024</p>
+          <span class="category-tag">Git</span>
+        </div>
+        <div class="cert-item">
+          <h3>Memulai Dasar Pemrograman untuk Menjadi Pengembang Software</h3>
+          <p>Dicoding · Agu 2021 - Agu 2024</p>
+          <span class="category-tag">Programming</span>
+        </div>
+        <div class="cert-item">
+          <h3>Pengenalan ke Logika Pemrograman (Programming Logic 101)</h3>
+          <p>Dicoding · Agu 2021 - Agu 2024</p>
+          <span class="category-tag">Logic</span>
+        </div>
+        <div class="cert-item">
+          <h3>Introduction to Data Science with Python</h3>
+          <p>DQLab · Sep 2020</p>
+          <span class="category-tag">Data Science</span>
+        </div>
+        <div class="cert-item">
+          <h3>Data Wrangling Python</h3>
+          <p>DQLab · Sep 2020</p>
+          <span class="category-tag">Data Science</span>
+        </div>
+        <div class="cert-item">
+          <h3>Python Fundamental for Data Science</h3>
+          <p>DQLab · Sep 2020</p>
+          <span class="category-tag">Python</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section section contact-section horizontal-panel" id="contact" aria-labelledby="contact-title">
+      <p class="section-kicker">LET'S CONNECT</p>
+      <h2 id="contact-title">Contact <span>me</span></h2>
+      <p class="section-intro">Have a question or want to discuss a project? Send a message through this form.</p>
+      <form class="contact-form" id="contactForm">
+        <label>Name<input type="text" name="name" placeholder="Your name" required></label>
+        <label>Email<input type="email" name="email" placeholder="name@email.com" required></label>
+        <label>Message<textarea name="message" rows="5" placeholder="Write your message..." required></textarea></label>
+        <button class="button button-primary" type="submit">Prepare Email <span aria-hidden="true">→</span></button>
+        <p class="form-note" id="formNote">This form prepares an email in your email app; it does not send anything to a server yet.</p>
+      </form>
+    </section>
+  </main>
+  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+  <script>
+    if (
+      window.cursoreffects &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      new window.cursoreffects.bubbleCursor({
+        fillColor: '#ff8c00',
+        strokeColor: '#fff0c2'
+      });
+      document.querySelector('canvas')?.classList.add('bubble-cursor-glow');
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

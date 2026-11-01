@@ -1,0 +1,47 @@
+.contact-form {
+	display: grid;
+	max-width: 680px;
+	gap: 17px;
+}
+
+.contact-form label {
+	display: grid;
+	gap: 7px;
+	color: var(--muted);
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	line-height: 1.4;
+}
+
+.contact-form input,
+.contact-form textarea {
+	width: 100%;
+	padding: 13px 15px;
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	outline: none;
+	background: #1b1e22;
+	color: var(--text);
+	font-size: 15px;
+	line-height: 1.55;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+	border-color: var(--red);
+}
+
+.contact-form textarea {
+	resize: vertical;
+}
+
+.contact-form .button {
+	justify-self: start;
+}
+
+.form-note {
+	color: #a99a9d;
+	font-size: 12.5px;
+	line-height: 1.6;
+}
