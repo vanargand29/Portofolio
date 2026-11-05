@@ -19,6 +19,8 @@
 	--page-gutter: clamp(20px, 5vw, 76px);
 }
 
+/* Portfolio styling */
+
 html {
 	scroll-behavior: auto;
 	scroll-padding-top: 88px;
