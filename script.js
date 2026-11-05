@@ -78,6 +78,8 @@ document.addEventListener('click', event => {
 });
 
 let wheelNavigationLocked = false;
+let touchStartY = 0;
+let touchEndY = 0;
 
 horizontalTrack.addEventListener('wheel', event => {
   const panel = event.target.closest('.horizontal-panel');
@@ -109,6 +111,58 @@ horizontalTrack.addEventListener('wheel', event => {
     wheelNavigationLocked = false;
   }, 650);
 }, { passive: false });
+
+// Touch swipe navigation for mobile
+horizontalTrack.addEventListener('touchstart', event => {
+  touchStartY = event.touches[0].clientY;
+}, { passive: true });
+
+horizontalTrack.addEventListener('touchmove', event => {
+  const panel = event.target.closest('.horizontal-panel');
+  if (!panel) return;
+
+  const canScrollPanel = panel.scrollHeight > panel.clientHeight;
+  const panelCanMoveVertically = event.touches[0].clientY < touchStartY
+    ? panel.scrollTop + panel.clientHeight < panel.scrollHeight - 1
+    : panel.scrollTop > 0;
+
+  if (canScrollPanel && panelCanMoveVertically) return;
+
+  touchEndY = event.touches[0].clientY;
+}, { passive: true });
+
+horizontalTrack.addEventListener('touchend', event => {
+  const panel = event.target.closest('.horizontal-panel');
+  if (!panel) return;
+
+  const swipeDistance = touchStartY - touchEndY;
+  const minSwipeDistance = 50;
+
+  if (Math.abs(swipeDistance) < minSwipeDistance) return;
+
+  const canScrollPanel = panel.scrollHeight > panel.clientHeight;
+  const panelCanMoveVertically = swipeDistance > 0
+    ? panel.scrollTop + panel.clientHeight < panel.scrollHeight - 1
+    : panel.scrollTop > 0;
+
+  if (canScrollPanel && panelCanMoveVertically) return;
+
+  if (wheelNavigationLocked) return;
+
+  const currentIndex = Math.round(horizontalTrack.scrollLeft / horizontalTrack.clientWidth);
+  const nextIndex = Math.max(
+    0,
+    Math.min(currentIndex + Math.sign(swipeDistance), horizontalPanels.length - 1)
+  );
+
+  if (nextIndex === currentIndex) return;
+
+  wheelNavigationLocked = true;
+  scrollToPanel(horizontalPanels[nextIndex]);
+  window.setTimeout(() => {
+    wheelNavigationLocked = false;
+  }, 650);
+}, { passive: true });
 
 function updateActiveNav() {
   const activeIndex = Math.min(
@@ -179,7 +233,7 @@ if (loadMoreBtn && heroDescription) {
     const isExpanded = heroDescription.classList.toggle('expanded');
     loadMoreBtn.setAttribute('aria-expanded', String(isExpanded));
     loadMoreBtn.querySelector('span:first-child').textContent = isExpanded ? 'Show less' : 'Read more';
-    
+
     // Scroll to description when expanding to prevent content from being hidden behind header
     if (isExpanded) {
       const headerHeight = document.querySelector('.site-header').offsetHeight;
@@ -191,3 +245,190 @@ if (loadMoreBtn && heroDescription) {
     }
   });
 }
+
+// Project modal functionality
+const projectModal = document.getElementById('projectModal');
+const modalOverlay = document.getElementById('modalOverlay');
+const modalClose = document.getElementById('modalClose');
+const modalFooterClose = document.getElementById('modalFooterClose');
+const modalImageContainer = document.getElementById('modalImageContainer');
+const modalImage = document.getElementById('modalImage');
+const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
+const modalTech = document.getElementById('modalTech');
+const modalHeaderCategory = document.getElementById('modalHeaderCategory');
+const modalHeaderType = document.getElementById('modalHeaderType');
+const modalTechCount = document.getElementById('modalTechCount');
+const modalFeatureCount = document.getElementById('modalFeatureCount');
+const modalFeatures = document.getElementById('modalFeatures');
+const modalGithub = document.getElementById('modalGithub');
+
+const imageModal = document.getElementById('imageModal');
+const imageModalOverlay = document.getElementById('imageModalOverlay');
+const imageModalClose = document.getElementById('imageModalClose');
+const fullSizeImage = document.getElementById('fullSizeImage');
+
+const alertModal = document.getElementById('alertModal');
+const alertModalOverlay = document.getElementById('alertModalOverlay');
+const alertModalClose = document.getElementById('alertModalClose');
+
+const projectData = {
+  jstore: {
+    number: '#01',
+    category: 'WEB APP',
+    headerCategory: 'GAME STORE',
+    headerType: 'WEB APPLICATION',
+    title: 'J-Store – Game Currency Store Platform',
+    description: 'J-Store adalah sebuah toko mata uang game untuk game populer seperti Genshin Impact. Platform ini menyediakan layanan pembelian mata uang game dengan sistem yang aman dan terpercaya.',
+    features: [
+      'Menampilkan berbagai produk mata uang game dengan harga yang kompetitif',
+      'Proses pembayaran yang aman dengan berbagai metode pembayaran',
+      'Tracking pesanan secara real-time untuk pengalaman terbaik'
+    ],
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    image: 'img/jstore(tampilan).png',
+    link: 'https://github.com/vanargand29/J-Store',
+    github: 'https://github.com/vanargand29/J-Store'
+  },
+  tuberculosis: {
+    number: '#02',
+    category: 'WEB APP',
+    headerCategory: 'HEALTHCARE',
+    headerType: 'EXPERT SYSTEM',
+    title: 'Tuberculosis Expert System – AI-Powered Disease Screening Platform',
+    description: 'Tuberculosis Expert System adalah aplikasi web untuk membantu skrining pasien berdasarkan gejala mereka menggunakan metode Dempster-Shafer. Sistem ini memberikan rekomendasi diagnosis yang akurat untuk tenaga kesehatan.',
+    features: [
+      'Form input untuk memasukkan gejala pasien secara lengkap',
+      'Proses diagnosis otomatis menggunakan algoritma Dempster-Shafer',
+      'Menampilkan hasil diagnosis dengan probabilitas dan rekomendasi'
+    ],
+    tech: ['Laravel', 'MySQL', 'Dempster-Shafer'],
+    image: 'https://via.placeholder.com/800x600/292c31/ff2028?text=Tuberculosis+Expert+System',
+    link: '#',
+    github: '#'
+  },
+  portfolio: {
+    number: '#03',
+    category: 'PERSONAL',
+    headerCategory: 'PORTFOLIO',
+    headerType: 'PERSONAL WEBSITE',
+    title: 'Personal Portfolio – Modern Portfolio Website',
+    description: 'Personal Portfolio adalah website untuk memperkenalkan profil, skill, dan karya saya. Website ini menampilkan informasi tentang diri saya, proyek yang pernah dikerjakan, serta cara untuk menghubungi saya.',
+    features: [
+      'Bagian pembuka dengan informasi diri dan animasi yang menarik',
+      'Informasi detail tentang diri saya dan skill yang dimiliki',
+      'Daftar proyek yang pernah dikerjakan dengan popup modal',
+      'Informasi pengalaman kerja, pendidikan, dan sertifikasi',
+      'Form kontak untuk mengirim pesan langsung ke email'
+    ],
+    tech: ['Responsive', 'UI Design', 'HTML/CSS/JS'],
+    image: 'img/porto(tampilan).png',
+    link: '#',
+    github: '#'
+  }
+};
+
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const projectId = card.getAttribute('data-project');
+    const data = projectData[projectId];
+
+    if (!data) return;
+
+    modalHeaderCategory.textContent = data.headerCategory;
+    modalHeaderType.textContent = data.headerType;
+    modalTitle.textContent = data.title;
+    modalDescription.textContent = data.description;
+    modalTechCount.textContent = data.tech.length;
+    modalFeatureCount.textContent = data.features.length;
+    modalImage.src = data.image;
+    modalImage.alt = data.title;
+    modalGithub.href = data.github;
+
+    modalTech.innerHTML = '';
+    data.tech.forEach(tech => {
+      const span = document.createElement('span');
+      span.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path><path d="M12 22V12"></path><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"></path><path d="m7.5 4.27 9 5.15"></path></svg>${tech}`;
+      modalTech.appendChild(span);
+    });
+
+    modalFeatures.innerHTML = '';
+    data.features.forEach(feature => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span>${feature}</span>`;
+      modalFeatures.appendChild(li);
+    });
+
+    projectModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// Image modal
+modalImageContainer.addEventListener('click', () => {
+  fullSizeImage.src = modalImage.src;
+  imageModal.setAttribute('aria-hidden', 'false');
+});
+
+function closeImageModal() {
+  imageModal.setAttribute('aria-hidden', 'true');
+}
+
+imageModalClose.addEventListener('click', closeImageModal);
+imageModalOverlay.addEventListener('click', closeImageModal);
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && imageModal.getAttribute('aria-hidden') === 'false') {
+    closeImageModal();
+  }
+});
+
+// Alert modal for GitHub
+modalGithub.addEventListener('click', (e) => {
+  e.preventDefault();
+  alertModal.setAttribute('aria-hidden', 'false');
+});
+
+function closeAlertModal() {
+  alertModal.setAttribute('aria-hidden', 'true');
+}
+
+alertModalClose.addEventListener('click', closeAlertModal);
+alertModalOverlay.addEventListener('click', closeAlertModal);
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && alertModal.getAttribute('aria-hidden') === 'false') {
+    closeAlertModal();
+  }
+});
+
+// Contact button navigation
+document.querySelectorAll('[data-target="contact"]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    closeModal();
+    setTimeout(() => {
+      const contactPanel = document.querySelector('.horizontal-panel[data-section="contact"]');
+      if (contactPanel) {
+        scrollToPanel(contactPanel);
+      }
+    }, 300);
+  });
+});
+
+function closeModal() {
+  projectModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+modalClose.addEventListener('click', closeModal);
+if (modalFooterClose) {
+  modalFooterClose.addEventListener('click', closeModal);
+}
+modalOverlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && projectModal.getAttribute('aria-hidden') === 'false') {
+    closeModal();
+  }
+});
