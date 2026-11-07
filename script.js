@@ -432,3 +432,72 @@ document.addEventListener('keydown', event => {
     closeModal();
   }
 });
+
+// Certificate filtering functionality
+const filterButtons = document.querySelectorAll('.filter-btn');
+const certItems = document.querySelectorAll('.cert-item');
+const filterDropdownToggle = document.getElementById('filterDropdownToggle');
+const filterDropdownMenu = document.getElementById('filterDropdownMenu');
+const currentFilterLabel = document.getElementById('currentFilterLabel');
+
+// Dropdown toggle functionality
+if (filterDropdownToggle && filterDropdownMenu) {
+  filterDropdownToggle.addEventListener('click', () => {
+    filterDropdownToggle.classList.toggle('open');
+    filterDropdownMenu.classList.toggle('open');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!filterDropdownToggle.contains(e.target) && !filterDropdownMenu.contains(e.target)) {
+      filterDropdownToggle.classList.remove('open');
+      filterDropdownMenu.classList.remove('open');
+    }
+  });
+}
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove active class from all buttons
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    // Add active class to clicked button
+    button.classList.add('active');
+
+    const filterValue = button.getAttribute('data-filter');
+
+    // Update dropdown label if exists
+    if (currentFilterLabel) {
+      currentFilterLabel.textContent = button.querySelector('span').textContent;
+    }
+
+    // Close dropdown after selection
+    if (filterDropdownToggle && filterDropdownMenu) {
+      filterDropdownToggle.classList.remove('open');
+      filterDropdownMenu.classList.remove('open');
+    }
+
+    certItems.forEach(item => {
+      if (filterValue === 'all') {
+        item.classList.remove('hidden');
+      } else {
+        const itemCategory = item.getAttribute('data-category');
+        if (itemCategory === filterValue) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      }
+    });
+  });
+});
+
+// Timeline read more functionality
+const timelineReadMoreButtons = document.querySelectorAll('.timeline-description .load-more-btn');
+
+timelineReadMoreButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const isExpanded = button.previousElementSibling.classList.toggle('expanded');
+    button.setAttribute('aria-expanded', String(isExpanded));
+    button.querySelector('span:first-child').textContent = isExpanded ? 'Show less' : 'Read more';
+  });
+});
