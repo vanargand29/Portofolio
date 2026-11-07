@@ -287,8 +287,8 @@ const projectData = {
     ],
     tech: ['HTML', 'CSS', 'JavaScript'],
     image: 'img/jstore(tampilan).png',
-    link: 'https://github.com/vanargand29/J-Store',
-    github: 'https://github.com/vanargand29/J-Store'
+    link: '#',
+    github: '#'
   },
   tuberculosis: {
     number: '#02',
@@ -324,7 +324,7 @@ const projectData = {
     tech: ['Responsive', 'UI Design', 'HTML/CSS/JS'],
     image: 'img/porto(tampilan).png',
     link: '#',
-    github: '#'
+    github: 'https://github.com/vanargand29/Portofolio'
   }
 };
 
@@ -344,6 +344,7 @@ document.querySelectorAll('.project-card').forEach(card => {
     modalImage.src = data.image;
     modalImage.alt = data.title;
     modalGithub.href = data.github;
+    modalGithub.setAttribute('data-project-id', projectId);
 
     modalTech.innerHTML = '';
     data.tech.forEach(tech => {
@@ -385,8 +386,14 @@ document.addEventListener('keydown', event => {
 
 // Alert modal for GitHub
 modalGithub.addEventListener('click', (e) => {
-  e.preventDefault();
-  alertModal.setAttribute('aria-hidden', 'false');
+  const githubLink = modalGithub.getAttribute('href');
+  
+  // Show alert only if link is #
+  if (githubLink === '#') {
+    e.preventDefault();
+    alertModal.setAttribute('aria-hidden', 'false');
+  }
+  // If link is valid URL, allow default navigation
 });
 
 function closeAlertModal() {
