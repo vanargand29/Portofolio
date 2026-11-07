@@ -381,6 +381,11 @@
 	display: none;
 }
 
+/* Hide dropdown toggle by default */
+.filter-dropdown-toggle {
+	display: none;
+}
+
 .filter-btn {
 	position: relative;
 	display: inline-flex;
@@ -687,13 +692,13 @@
 		display: flex;
 	}
 
+	/* Hide desktop filter buttons */
+	.desktop-filter-btn {
+		display: none;
+	}
+
 	/* Show mobile filter buttons in dropdown */
 	.mobile-filter-btn {
 		display: flex;
-	}
-
-	/* Hide regular filter buttons (not mobile) */
-	.filter-btn:not(.mobile-filter-btn) {
-		display: none;
 	}
 }
